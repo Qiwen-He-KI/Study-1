@@ -1,16 +1,14 @@
 # Study-1
-The code used in the paper "Comparison of Loss in Life Expectancy (LLE) and Years of Life Lost (YLL): A Monte Carlo Simulation Study]{Comparison of Loss in Life Expectancy (LLE) and Years of Life Lost (YLL): A Monte Carlo Simulation Study and Application to Cancer Registry Data"
 
-# Master_Thesis
 Title: Comparison of Loss in Life Expectancy (LLE) and Years of Life Lost (YLL): A Monte Carlo Simulation Study and Application to Cancer Registry Data
 
 Author: Qiwen He, PhD Student in Biostatistics, Department of Medical Epidemiology and Biostatistics, Karolinska Institutet
 
 Co-authors: Paul C. Lambert1, Paul W. Dickman, Therese M.-L. Andersson, Elisavet Syriopoulou
 
-## Simulation, Estimation of LLE, and Calculation of YLL
+## Simulation Study
 
-## Simulation, Estimation of LLE, and Calculation of YLL
+### Simulation, Estimation of LLE, and Calculation of YLL
 
 The files `Main_code_scen_*.do` are the main Stata scripts for each simulation scenario. Each main file corresponds to one specific scenario and organizes the full simulation workflow. Within each script, two additional do-files are called: one for simulating the data under the specified scenario, and another for calculating the estimate of LLE and YLL. Specifically, the data simulation is performed using two scenario-specific do-files. The file `Simulation_scen_allconstant_v2.do` is used for all scenarios except Scenario 4, 5a, and 5b. For Scenario 4, the file `Simulation_scen_withyear_v2.do` is used, as this scenario incorporates the calendar year in the data-generating process. For Scenarios 5a and 5b, no additional data simulation is required. Instead, these scenarios are based on the data generated under the baseline scenario. Misclassification is then introduced using `Missclass_a.do` and `Missclass_b.do`, respectively, before calculating LLE and YLL. Moreover, the calculation of LLE and YLL is also performed using two scenario-specific do-files. The file `LLE_YLL_Calculation_allconstant_v2.do` is used for all scenarios except Scenario 4. For Scenario 4, the file `LLE_YLL_Calculation_withyear_v2.do` is used, as this scenario requires calculations that account for the calendar year.
 
