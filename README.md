@@ -34,13 +34,14 @@ The calculation of **Years of Life Lost (YLL)** for all seven cancer types is im
 
 ## Life Table and Population Mortality Data
 
-This section describes the external life table and population mortality datasets used in the simulation study.
+This section describes the external life table and population mortality datasets used in this study.
 
 The population mortality data are stored in the following files:
 
 - `popmort_sweden_2023.dta`: the original population mortality dataset, containing calendar year-specific mortality information for Sweden.
-- `popmort_2016forall_1933_2023.dta`: derived from `popmort_sweden_2023.dta`. In this dataset, the death rates and one-year survival probabilities for all calendar years are replaced by the corresponding values from 2016.
+- `popmort_2016forall_1933_2023.dta`: derived from `popmort_sweden_2023.dta`. In this dataset, the death rates and one-year survival probabilities for all calendar years were replaced by the corresponding values from 2016.
 - `popmort_sweden_only2016.dta`: derived from `popmort_sweden_2023.dta` by retaining only the records for calendar year 2016.
+- `popmort_sweden_2023.dta`: derived from `popmort_sweden_2023.dta`, which contains data from 1950 onwards. The data were extended back to 1933 by assuming that the population mortality rates for the years 1933–1949 were the same as those observed in 1950.
 
 The life table data are stored in the following files:
 
