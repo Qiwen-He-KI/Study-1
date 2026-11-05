@@ -12,7 +12,7 @@ Co-authors: Paul C. Lambert1, Paul W. Dickman, Therese M.-L. Andersson, Elisavet
 
 The files `Main_code_scen_*.do` are the main Stata scripts for each simulation scenario. Each main file corresponds to one specific scenario and organizes the full simulation workflow. Within each script, two additional do-files are called: one for simulating the data under the specified scenario, and another for calculating the estimate of LLE and YLL. Specifically, the data simulation is performed using two scenario-specific do-files. The file `Simulation_scen_allconstant_v2.do` is used for all scenarios except Scenario 4, 5a, and 5b. For Scenario 4, the file `Simulation_scen_withyear_v2.do` is used, as this scenario incorporates the calendar year in the data-generating process. For Scenarios 5a and 5b, no additional data simulation is required. Instead, these scenarios are based on the data generated under the baseline scenario. Misclassification is then introduced using `Missclass_a.do` and `Missclass_b.do`, respectively, before calculating LLE and YLL. Moreover, the calculation of LLE and YLL is also performed using two scenario-specific do-files. The file `LLE_YLL_Calculation_allconstant_v2.do` is used for all scenarios except Scenario 4. For Scenario 4, the file `LLE_YLL_Calculation_withyear_v2.do` is used, as this scenario requires calculations that account for the calendar year.
 
-## Monte Carlo Error Assessment and Selection of `n_sim`
+### Monte Carlo Error Assessment and Selection of `n_sim`
 
 This section describes the scripts used to assess Monte Carlo error and determine an appropriate number of simulation repetitions (`n_sim`). 
 
@@ -20,9 +20,17 @@ The file `True_value_allconstant_v2.do` is used to estimate the reference values
 
 The file `Bias_analysis_allconstant_v2.do` is then used to calculate the estimated bias and Monte Carlo error across different values of `n_sim`. It also produces plots to visualize how the bias and Monte Carlo error change as the number of simulation repetitions increases. These results are used to guide the choice of an appropriate `n_sim` for the main simulation study.
 
-## Comparison of LLE and YLL
+### Comparison of LLE and YLL
 
 The file `Comparison.do` is used to compare the estimates of LLE and YLL. This script performs paired t-tests to assess differences between the two measures, creates box plots to visualize their distributions, and conducts linear regression analyses to examine the relationship between LLE and YLL. These analyses provide an overall comparison of the two methods across the simulation results.
+
+## Applied Example
+
+### Calculation of LLE and YLL
+
+The calculation of LLE is implemented separately for each cancer type in the following Stata do-files: `"LLE-melanoma.do"`, `"LLE-ovarian.do"`, `"LLE-colon.do"`, `"LLE-cml.do"`, `"LLE-breast.do"`, `"LLE-bladder.do"`, and `"LLE-AML.do"`.
+
+The calculation of **Years of Life Lost (YLL)** for all seven cancer types is implemented in `"YLL.do"`.
 
 ## Life Table and Population Mortality Data
 
