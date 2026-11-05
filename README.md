@@ -10,15 +10,13 @@ Co-authors: Paul C. Lambert, Paul W. Dickman, Therese M.-L. Andersson, Elisavet 
 
 ### Simulation, Estimation of LLE, and Calculation of YLL
 
-The files `Main_code_scen_*.do` are the main Stata scripts for each simulation scenario. Each main file corresponds to one specific scenario and organizes the full simulation workflow. Within each script, two additional do-files are called: one for simulating the data under the specified scenario, and another for calculating the estimate of LLE and YLL. Specifically, the data simulation is performed using two scenario-specific do-files. The file `Simulation_scen_allconstant_v2.do` is used for all scenarios except Scenario 4, 5a, and 5b. For Scenario 4, the file `Simulation_scen_withyear_v2.do` is used, as this scenario incorporates the calendar year in the data-generating process. For Scenarios 5a and 5b, no additional data simulation is required. Instead, these scenarios are based on the data generated under the baseline scenario. Misclassification is then introduced using `Missclass_a.do` and `Missclass_b.do`, respectively, before calculating LLE and YLL. Moreover, the calculation of LLE and YLL is also performed using two scenario-specific do-files. The file `LLE_YLL_Calculation_allconstant_v2.do` is used for all scenarios except Scenario 4. For Scenario 4, the file `LLE_YLL_Calculation_withyear_v2.do` is used, as this scenario requires calculations that account for the calendar year.
+The files `Main_code_scen_*.do` are the main Stata scripts for each simulation scenario. Each main file corresponds to one specific scenario and organizes the full simulation workflow. Within each script, two additional do-files are called: one for simulating the data under the specified scenario, and another for calculating the estimate of LLE and YLL. Specifically, the data simulation is performed using two scenario-specific do-files. The file `Simulation_scen_allconstant_v4.do` is used for all scenarios except Scenario 4, 5a, and 5b. For Scenario 4, the file `Simulation_scen_withyear_v4.do` is used, as this scenario incorporates the calendar year in the data-generating process. For Scenarios 5a and 5b, no additional data simulation is required. Instead, these scenarios are based on the data generated under the baseline scenario. Misclassification is then introduced using `Missclass_a.do` and `Missclass_b.do`, respectively, before calculating LLE and YLL. Moreover, the calculation of LLE and YLL is also performed using two scenario-specific do-files. The file `LLE_YLL_Calculation_allconstant_v4.do` is used for all scenarios except Scenario 4. For Scenario 4, the file `LLE_YLL_Calculation_withyear_v4.do` is used, as this scenario requires calculations that account for the calendar year.
 
 ### Monte Carlo Error Assessment and Selection of `n_sim`
 
 This section describes the scripts used to assess Monte Carlo error and determine an appropriate number of simulation repetitions (`n_sim`). 
 
-The file `True_value_allconstant_v2.do` is used to estimate the reference values of LLE and YLL from a very large simulated dataset. Because the dataset is sufficiently large, these estimates are treated as approximate true values for comparison. 
-
-The file `Bias_analysis_allconstant_v2.do` is then used to calculate the estimated bias and Monte Carlo error across different values of `n_sim`. It also produces plots to visualize how the bias and Monte Carlo error change as the number of simulation repetitions increases. These results are used to guide the choice of an appropriate `n_sim` for the main simulation study.
+The file `Bias_analysis_allconstant_v4` is used to calculate Monte Carlo error across different values of `n_sim`. It also produces plots to visualize how Monte Carlo error change as the number of simulation repetitions increases. These results are used to guide the choice of an appropriate `n_sim` for the simulation study.
 
 ### Comparison of LLE and YLL
 
@@ -41,7 +39,7 @@ The population mortality data are stored in the following files:
 - `popmort_sweden_2023.dta`: the original population mortality dataset, containing calendar year-specific mortality information for Sweden.
 - `popmort_2016forall_1933_2023.dta`: derived from `popmort_sweden_2023.dta`. In this dataset, the death rates and one-year survival probabilities for all calendar years were replaced by the corresponding values from 2016.
 - `popmort_sweden_only2016.dta`: derived from `popmort_sweden_2023.dta` by retaining only the records for calendar year 2016.
-- `popmort_sweden_2023.dta`: derived from `popmort_sweden_2023.dta`, which contains data from 1950 onwards. The data were extended back to 1933 by assuming that the population mortality rates for the years 1933–1949 were the same as those observed in 1950.
+- `popmort_sweden_2023.dta`: derived from `popmort_sweden_2023.dta`, which contains data from 1950 onwards. The data were extended back to 1933 by assuming that the population mortality rates for the years 1933–1949 were the same as those observed in 1950. It is achieved through `Extend_popmort.do`.
 
 The life table data are stored in the following files:
 
