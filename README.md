@@ -4,7 +4,7 @@ Title: Comparison of Loss in Life Expectancy (LLE) and Years of Life Lost (YLL):
 
 Author: Qiwen He, PhD Student in Biostatistics, Department of Medical Epidemiology and Biostatistics, Karolinska Institutet
 
-Co-authors: Paul C. Lambert1, Paul W. Dickman, Therese M.-L. Andersson, Elisavet Syriopoulou
+Co-authors: Paul C. Lambert, Paul W. Dickman, Therese M.-L. Andersson, Elisavet Syriopoulou
 
 ## Simulation Study
 
